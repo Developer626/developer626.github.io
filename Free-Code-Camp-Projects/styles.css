@@ -1,0 +1,393 @@
+/* 
+
+Pattern of CSS file
+-variables
+-Tags
+-classes
+
+
+media screen sizes
+320px
+375px
+425px
+768px
+1024px
+1440px
+2560px
+
+*/
+
+:root{
+    --bg-color: red;
+    --button-bg-color: rgba(128, 128, 128, 0.295);
+    --border-color: red;
+    --text-color: black;
+
+    /* These will probably be altered or added to. (extra versions so on.) */
+    --height: auto;
+    --width: 100%;
+
+    --col-repeat: 1;
+    --col-repeat-size: 1fr;
+    --row-repeat: 1;
+    --row-repeat-size: auto;
+    --col-gap: 0;
+    --row-gap: 0;
+
+    --grid-side-padding: 10%;
+    --section-top-bottom-padding: 100px;
+    --grid-top-bottom-padding: 0;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding: var(--section-top-bottom-padding, 100px) 0px;
+}
+
+a{ 
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+
+/* This will need to be placed or variabled for a media query */
+.svg-links{
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.facebook:hover{
+    fill: #3b5998;
+    background-color: #fff;
+}
+
+.twitter:hover{
+    fill: #1DA1F2;
+}
+
+.linkedin:hover{
+    fill: #0077b5;
+    background-color: #fff;
+}
+
+.github:hover{
+    fill: #4078c0;
+    background-color: #fafafa;
+    border-radius: 100%;
+}
+
+nav{
+    --text-color: #00B0FF;
+    
+    /* This might be better fixed as placed in another part */
+    --bg-color: #00B0FF;
+
+    --button-bg-color: rgba(119, 71, 49, 0.562);
+    --border-color: #00B0FF;
+    background-color: rgba(128, 128, 128, 0.8);
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+}
+
+nav ul{
+    height: 100%;
+    width: auto;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    margin-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0px 10px
+}
+
+nav li a{
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+nav li a:hover{
+    background-color: var(--bg-color);
+    --text-color: black;
+}
+
+.grid{
+    height: var(--height);
+    width: var(--width);
+    background-color: var(--bg-color, red);
+    
+    display: grid;
+    grid-template-columns: var(--grid-side-padding) repeat(var(--col-repeat), [col] var(--col-repeat-size)) var(--grid-side-padding);
+    grid-template-rows: repeat(var(--row-repeat), [row] var(--row-repeat-size));
+    grid-column-gap: var(--col-gap, 0);
+    grid-row-gap: var(--row-gap, 0);
+}
+
+.grid-item-1{
+    grid-area: var(--grid-item-1);
+}
+
+.grid-item-2{
+    grid-area: var(--grid-item-2);
+}
+
+.grid-item-3{
+    grid-area: var(--grid-item-3);
+}
+
+.grid-item-4{
+    grid-area: var(--grid-item-4);
+}
+
+.grid-item-5{
+    grid-area: var(--grid-item-5);
+}
+
+.grid-item-6{
+    grid-area: var(--grid-item-6);
+}
+
+.grid-item-7{
+    grid-area: var(--grid-item-7);
+}
+
+.grid-item-8{
+    grid-area: var(--grid-item-8);
+}
+
+.grid-text-center{
+    text-align: center;
+}
+
+.title h2{
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+
+.landing{
+    --bg-color: none;
+    --height: 100vh;
+    --row-repeat: 5;
+    --row-repeat-size: 20%;
+
+    --grid-item-1: 1 / 1 / 6 / 4; /* background */
+    --grid-item-2: 1 / 1 / 6 / 4; /* background color overlay */
+    --grid-item-3: 3 / 2 / 4 / 3; /* center text */
+    --grid-item-4: 5 / 2 / 6 / 3; /* bottom text */
+    /* --grid-item-5: 3 / 3 / 4 / 4;
+    --grid-item-6: 4 / 2 / 5 / 3;
+    --grid-item-7: 4 / 3 / 5 / 4; */
+    /* --grid-item-8: ; */
+    text-align: center;
+}
+
+.landing-background{
+    filter: grayscale(0.5);
+    z-index: -2;
+    background-image: url("Pics/landing4.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.landing-color-overlay{
+    z-index: -1;
+    background-color: rgba(92, 61, 45, 0.137);
+}
+
+.landing-text{
+    /* text-align: center; */
+    line-height: 0;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 3em;
+    font-family: 'Shadows Into Light Two', cursive;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+.landing-arrow{
+    margin: 10vh;
+    height: 50px;
+}
+
+.landing-arrow::before{
+    height: 20px;
+    width: 20px;
+    content: '';
+    position: absolute;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    transform: rotate(-45deg);
+}
+.landing-arrow::after{
+    height: 0px;
+    width: 4px;
+    margin-left: 10px;
+    content: '';
+    position: absolute;
+    transition: .7s ease-in-out;
+}
+
+.landing-arrow:hover::after{
+    height: 25px;
+    background-color: #fff;
+}
+
+.skills{
+    --bg-color: white;
+    --col-repeat: 2;
+    --col-repeat-size: 1fr;
+    --row-repeat: 4;
+    --row-repeat-size: auto;
+    --col-gap: 5%;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 4; /* title */
+    --grid-item-2: 2 / 2 / 3 / 3;
+    --grid-item-3: 2 / 3 / 3 / 4;
+    --grid-item-4: 3 / 2 / 4 / 3;
+    --grid-item-5: 3 / 3 / 4 / 4;
+    --grid-item-6: 4 / 2 / 5 / 3;
+    --grid-item-7: 4 / 3 / 5 / 4;
+    /* --grid-item-8: ; */
+    text-align: center;
+}
+
+.work{
+    /* --bg-color: #D27335; */
+    --bg-color: rgb(210, 210, 210);
+    --col-repeat: 2;
+    --col-repeat-size: 1fr;
+    --row-repeat: 4;
+    --row-repeat-size: auto;
+    --col-gap: 5%;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 4; /* title */
+    --grid-item-2: 2 / 2 / 3 / 3;
+    --grid-item-3: 2 / 3 / 3 / 4;
+    --grid-item-4: 3 / 2 / 4 / 3;
+    --grid-item-5: 3 / 3 / 4 / 4;
+    --grid-item-6: 4 / 2 / 5 / 4; /* view more */
+    /* --grid-item-7: ; */
+    /* --grid-item-8: ; */ 
+}
+
+.personal-projects{
+    /* --bg-color: #D27335; */
+    --bg-color: white;
+    --col-repeat: 2;
+    --col-repeat-size: 1fr;
+    --row-repeat: 4;
+    --row-repeat-size: auto;
+    --col-gap: 5%;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 4; /* title */
+    --grid-item-2: 2 / 2 / 3 / 3;
+    --grid-item-3: 2 / 3 / 3 / 4;
+    --grid-item-4: 3 / 2 / 4 / 3;
+    --grid-item-5: 3 / 3 / 4 / 4;
+    --grid-item-6: 4 / 2 / 5 / 4; /* view more */
+    /* --grid-item-7: ; */
+    /* --grid-item-8: ; */ 
+}
+
+.personal-projects img{
+    height: 85%;
+    width: 85%;
+}
+
+.bio{
+    --bg-color: rgb(210, 210, 210);
+    --col-repeat: 3;
+    --col-repeat-size: 1fr;
+    --row-repeat: 3;
+    --row-repeat-size: auto;
+    --col-gap: 20px;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 5; /* title */
+    --grid-item-2: 2 / 2 / 4 / 3; /* picture */
+    --grid-item-3: 2 / 3 / 3 / 5; /* svg links */
+    --grid-item-4: 3 / 3 / 4 / 5; /* bio summary */
+    /* --grid-item-5: 3 / 3 / 4 / 4; */
+    /* --grid-item-6: 4 / 2 / 5 / 4; */
+    /* --grid-item-7: 4 / 3 / 5 / 4; */
+    /* --grid-item-8: ; */ 
+}
+
+.bio img{
+    height: 260px;
+    width: 200px;
+}
+
+.contact-me{
+    --bg-color: white;
+    --col-repeat: 3;
+    --col-repeat-size: 1fr;
+    --row-repeat: 3;
+    --row-repeat-size: auto;
+    --col-gap: 20px;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 4; /* title */
+    --grid-item-2: 2 / 2 / 3 / 4; /* text */
+    --grid-item-3: 3 / 2 / 4 / 5; /* contact box */
+    /* --grid-item-4: 3 / 3 / 4 / 4; */
+    /* --grid-item-5: 3 / 3 / 4 / 4; */
+    /* --grid-item-6: 4 / 2 / 5 / 4; */
+    /* --grid-item-7: 4 / 3 / 5 / 4; */
+    /* --grid-item-8: ; */ 
+}
+
+.contact-box{
+    background: blue;
+    height: 200px;
+    width: 100%;
+}
+
+.footer{
+    padding: 50px 0px;
+    --bg-color: rgb(161, 161, 161);
+    --row-repeat: 2;
+    --grid-side-padding: 30%;
+    --col-gap: 20px;
+    --row-gap: 25px;
+    --grid-item-1: 1 / 2 / 2 / 3; /* title */
+    --grid-item-2: 2 / 2 / 3 / 3; /* picture */
+}
+
+.footer-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-flex .svg-links{
+    margin: 0px;
+
+}
+
+.footer-text{
+    text-align: center;
+}
