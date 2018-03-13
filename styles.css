@@ -1,0 +1,131 @@
+/* 
+Media Screen sizes
+
+*/
+
+:root{
+    --bg-color: red;
+    --text-color: black;
+}
+
+.card-section-title{
+    grid-area: title;
+    text-decoration: underline;
+}
+
+.card-1{
+    grid-area: card-1;
+    --bg-color: rgb(75, 175, 214);
+}
+
+.card-2{
+    grid-area: card-2;
+    --bg-color: yellow;
+}
+
+.card-3{
+    grid-area: card-3;
+    --bg-color: rgb(80, 214, 75);
+}
+
+.card-4{
+    grid-area: card-4;
+    --bg-color: rgb(253, 132, 19);
+}
+
+.card-5{
+    grid-area: card-5;
+    --bg-color: rgb(19, 237, 253);
+}
+
+.card-6{
+    grid-area: card-6;
+    --bg-color: rgb(19, 113, 253);
+}
+
+.card{
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 30px 50px;
+    box-shadow: 0px 2px 5px;
+    text-decoration: none;
+    /* width: 200px; */
+    /* height: 50px; */
+    /* justify-self: center; */
+}
+
+.card:hover{
+    box-shadow: 0px 5px 20px;
+    transition: .4s;
+    transition-timing-function: ease-in;
+    z-index: 1;
+}
+
+.card-no-hover:hover{
+    box-shadow: 0px 2px 5px;
+    cursor: default;
+}
+
+@media screen 
+  and (min-width: 1025px) /*and (max-width: 1440)*/{
+    .cards{
+        display: grid;
+        grid-template-columns: [grid-collumn-start] 10% [grid-collumn-1] 1fr [grid-collumn-2] 1fr [grid-collumn-3] 1fr [grid-collumn-4] 1fr [grid-collumn-5] 10% [grid-collumn-end];
+        grid-template-rows: [grid-row-start] auto [grid-row-1] auto [grid-row-2] auto [grid-row-end];
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-template-areas: 
+            ". title  title  title  title  ."
+            ". card-1 card-2 card-3 card-4 ."
+            ". card-5 card-6 .      .      .";
+    }
+}
+
+@media screen 
+  and (min-width: 769px) and (max-width: 1024px){
+    .cards{
+        display: grid;
+        grid-template-columns: [grid-collumn-start] 10% [grid-collumn-1] 1fr [grid-collumn-2] 1fr [grid-collumn-3] 1fr [grid-collumn-4] 10% [grid-collumn-end];
+        grid-template-rows: [grid-row-start] auto [grid-row-1] auto [grid-row-2] auto [grid-row-end];
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-template-areas: 
+            ". title  title  title  ."
+            ". card-1 card-2 card-3 ."
+            ". card-4 card-5 card-6 .";
+    }
+}
+
+@media screen 
+  and (min-width: 426px) and (max-width: 768px){
+    .cards{
+        display: grid;
+        grid-template-columns: [grid-collumn-start] 10% [grid-collumn-1] 1fr [grid-collumn-2] 1fr [grid-collumn-3] 10% [grid-collumn-end];
+        grid-template-rows: [grid-row-start] auto [grid-row-1] auto [grid-row-2] auto [grid-row-end];
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-template-areas: 
+            ". title  title  ."
+            ". card-1 card-2 ."
+            ". card-3 card-4 ."
+            ". card-5 card-6 .";
+    }
+}
+
+@media screen 
+  and (max-width: 425px){
+    .cards{
+        display: grid;
+        grid-template-columns: [grid-collumn-start] 10% [grid-collumn-1] 1fr [grid-collumn-2] 10% [grid-collumn-end];
+        grid-template-rows: [grid-row-start] auto [grid-row-1] auto [grid-row-2] auto [grid-row-4] auto [grid-row-5] auto [grid-row-6] auto [grid-row-end];
+        grid-row-gap: 20px;
+        grid-template-areas: 
+            ". title  ."
+            ". card-1 ." 
+            ". card-2 ."
+            ". card-3 ."
+            ". card-4 ."
+            ". card-5 ."
+            ". card-6 .";
+    }
+}
