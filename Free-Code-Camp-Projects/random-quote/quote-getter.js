@@ -11,19 +11,19 @@ $(document).ready(function(){
     newQuote();
 });
 
-function newQuote(){
-    $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1").done( function(quote){
-        $("#quote").html(quote[0].content);
-        $("#author").html("-" + quote[0].title);  
-        // $("#author-link").html(quote[0].custom_meta.Source);
-        $("#brought-to-you-by").html(quote[0].link);
+// function newQuote(){
+//     $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1").done( function(quote){
+//         $("#quote").html(quote[0].content);
+//         $("#author").html("-" + quote[0].title);  
+//         // $("#author-link").html(quote[0].custom_meta.Source);
+//         $("#brought-to-you-by").html(quote[0].link);
 
-        let text = document.getElementById("quote").getElementsByTagName("p")[0].innerText;
-        $("#tweet").html("<a href='https://twitter.com/intent/tweet?text=\"" + text + "\"" + "-" + quote[0].title + "&url=" + quote[0].link +"' class='twitter-share-button' data-show-count='false'>Tweet</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>");
-    }).fail( function (){
-        console.log("Oops");
-    });
-}
+//         let text = document.getElementById("quote").getElementsByTagName("p")[0].innerText;
+//         $("#tweet").html("<a href='https://twitter.com/intent/tweet?text=\"" + text + "\"" + "-" + quote[0].title + "&url=" + quote[0].link +"' class='twitter-share-button' data-show-count='false'>Tweet</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>");
+//     }).fail( function (){
+//         console.log("Oops");
+//     });
+// }
 
 function newQuote(){
     $.ajax({
