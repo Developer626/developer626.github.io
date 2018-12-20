@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <!-- Add div here to surround forum -->
+    <main>
+        <h1 id="title">Survey Form</h1>
+        <p id="description">Let me know how my work is going. (Doesn't actually submit anything)</p>
+        <form action="" id="survey-form">
+            <div class="grid-holder">
+                <!-- add divs for each section of the form for better placement -->
+                <div>
+                    <label id="name-label" for="name">Name:</label>
+                </div>
+                <div>
+                    <input type="text" name="name" id="name" placeholder="Enter Name" pattern=".+\s.+" required><br>
+                </div>
+                
+                <div>
+                    <label id="email-label" for="email">Email:</label>
+                </div>
+                <div>
+                    <input type="email" name="email" id="email" placeholder="Enter Email" pattern=".+@.+\..+" required><br>
+                </div>
+                
+                <div>
+                    <label id="number-label" for="age">Age:</label>
+                </div>
+                <div>
+                    <input type="number" name="age" id="number" min="18" max="99" placeholder="18"><br>
+                </div>
+                
+                <div>
+                    <label for="">Overall:</label>
+                </div>
+                <div>
+                    <select name="" id="dropdown">
+                        <option value="">Great</option>
+                        <option value="">Average</option>
+                        <option value="">Not Well</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="improve">Area to improve in:</label>
+                </div>
+                <div>
+                    <input type="radio" name="improve" id="" value="0">Front-End<br>
+                    <input type="radio" name="improve" id="" value="1">Back-End<br>
+                    <input type="radio" name="improve" id="" value="2">Full-Stack<br>
+                </div>
+
+                <div>
+                    <label for="">Skills to improve:</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="" value="3">UI Design<br>
+                    <input type="checkbox" name="" id="" value="4">Writing Skills<br>
+                    <input type="checkbox" name="" id="" value="5">Unit Testing<br>
+                </div>
+
+                <div>
+                    <label for="">Skills best at:</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="" value="1">UI Design<br>
+                    <input type="checkbox" name="" id="" value="2">Writing Skills<br>
+                    <input type="checkbox" name="" id="" value="3">Unit Testing<br>
+                </div>
+
+                <div>
+                    <label for="">Additional comments:</label>
+                </div>
+                <div>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+
+                <div id="submit-button">
+                    <!-- <input type="button" value="Submit" id="submit"> -->
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </main>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
