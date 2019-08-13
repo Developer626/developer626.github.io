@@ -27,10 +27,11 @@ main{
 }
 
 .landing-background{
+    /* /Images/negative-space-laptop-camera-notepad-glass-water-daria-shevtsova.jpg */
     /* filter: grayscale(0.5); */
     filter: blur(0px) grayscale(0);
     z-index: -2;
-    background-image: url(/Images/negative-space-laptop-camera-notepad-glass-water-daria-shevtsova.jpg);
+    background-image: url(/Images/full-sized/negative-space-laptop-camera-notepad-glass-water-daria-shevtsova.jpg);
     background-size: cover;
     background-position: center;
     animation-duration: 3s;
