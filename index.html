@@ -1,105 +1,381 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Developer 626</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
-    <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu_tutorial.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Aaron Waruszewski</title>
 </head>
 <body>
-    <!-- Things I want in this main part of the page -->
-    <!-- I could also use this as my portfolio page at some point in the future -->
-    <!-- FCC projects -->
-    <!-- Blog -->
-        <!-- I'll need to make a design for this too -->
-    <!-- Github projects I'm working on -->
-    <!-- Work I've done -->
-    
-    
-    <!-- cards -->
-    <div class="projects cards">
-
-        <h2 class="card-section-title">
-            Free Code Camp Projects
-        </h2>
-
-        <a href="" class="card card-1">
-            <div class="card-text">
-                Tribute Page
+    <header>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li><a href="#" class="current-location">Home</a></li>
+                    <li><a href="https://github.com/Developer626">My Github</a></li>
+                    <li><a href="/blog/blog-list.html">Blog</a></li>
+                    <li><a href="/web-portfolio/web-portfolio.html">Portfolio</a></li>
+                    <li><a href="/contactme.html">Contact Me</a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                </ul>
             </div>
-        </a>
-
-        <a href="Free-Code-Camp-Projects/Portfolio-Page.html" class="card card-2">
-            <div class="card-text">
-                Portfolio Page
-            </div>
-        </a>
-
-        <a href="" class="card card-3 card-no-hover">
-            <div class="card-text">
-                A card to hold another project
-            </div>
-        </a>
-
-        <a href="" class="card card-4 card-no-hover">
-            <div class="card-text">
-                    A card to hold another project
-            </div>
-        </a>
-
+        </nav>
+    </header>
+    <div class="landing grid">
+        <div class="grid-item-1 landing-background"></div>
+        <div class="grid-item-2 landing_color-overlay"></div>
+        <div class="grid-item-3 landing-text">
+            <p>Great</p><p style="animation-delay: 250ms">Web Design</p><p style="animation-delay: 500ms">Starts Here</p>
+        </div>
+        <div class="grid-item-4"></div>
     </div>
 
-    <div class="blog cards">
-
-        <h2 class="card-section-title">
-            Blog
-        </h2>
-
-        <a href="" class="card card-1 card-no-hover">
-            <div class="card-text">
-                Coming Soon...
+    <main>
+        <section class="what grid">
+            <div class="title grid-item-1">
+                <h2>What I can do for you</h2>
             </div>
-        </a>
-
-        <a href="" class="card card-2 card-no-hover">
-            <div class="card-text">
-                Also Coming Soon...
+            <div class="grid-item-2">
+                <p>
+                    If you're looking for a lackluster web page like this one, then you came to 
+                    the right place. I can make one for you too. A clean interface that is so easy 
+                    to navigate it will surely put your users to sleep. So get in contact 
+                    with me and get your very own one today! File in: /HTML-Server
+                </p>
+            
+        </section>
+        <section class="card-holder github-projects grid">
+            <div class="title grid-item-1">
+                <h2>Github Projects</h2>
             </div>
-        </a>
 
-        <a href="" class="card card-3 card-no-hover">
-            <div class="card-text">
-                Coming to a browser near you...
-            </div>
-        </a>
+            <!-- div>div>h3+img^div>header>h2+ul>li*3^^p+div>a -->
 
-        <a href="" class="card card-4 card-no-hover">
-            <div class="card-text">
-                Info Being Processed. Please Wait...
-            </div>
-        </a>
+            <div class="grid-item-2 cards">
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text" id="isoblocks">Fitbit Clock Face</h3>
+                        <img src="Images/screenshot2.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">IsoBlocks</h2>
+                        </header>
+                        <p class="card-summary">A clone of the popular pebble watch app Iso Time, that works!</p>
+                        <div class="card-bottom">
+                            <a href="https://github.com/Developer626/IsoBlocks">Visit Project</a>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="" class="card card-5 card-no-hover">
-            <div class="card-text">
-                Info Being Processed. Please Wait...
-            </div>
-        </a>
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text">CSS Library</h3>
+                        <img src="/Images/css-puns-web-design-funny-jokes-3.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">SimplyCSS</h2>
+                        </header>
+                        <p class="card-summary">A CSS library that this Website is built in.</p>
+                        <div class="card-bottom">
+                            <a href="https://github.com/Developer626/SimplyCSS">Visit Project</a>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="" class="card card-6 card-no-hover">
-            <div class="card-text">
-                Info Being Processed. Please Wait...
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text">Puzzle challenges and Solutions</h3>
+                        <img src="/Images/71GvfUed3fL._UX569_.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Puzzle challenges and Solutions</h2>
+                        </header>
+                        <p class="card-summary">A list of fun puzzle challenges and their solutions currently written in python.</p>
+                        <div class="card-bottom">
+                            <a href="https://github.com/Developer626/Solutions-to-puzzle-challenges">Visit Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wide-card">
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Other Github Projects</h2>
+                            <!-- <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul> -->
+                        </header>
+                        <p class="card-summary">Want to see more?</p>
+                        <div class="card-bottom">
+                            <a href="">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="card">
+                    <div>
+                        <h3>Card Title</h3>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                </div> -->
             </div>
-        </a>
-        <!-- HTML Basic Requierments -->
-        <!-- Requirments for using specific css tags -->
-        <!-- CSS Anatomy -->
-        <!-- Grid Basics -->
-        <!-- Flex Box Basics -->
-        <!-- CSS Variables -->
-        <!--  -->
-    </div>
+        </section>
+        <section class="card-holder grid blog">
+            <div class="title grid-item-1">
+                <h2>Blog</h2>
+            </div>
+
+            <div class="grid-item-2">
+                <p >
+                    Coming Soon!
+                </p>
+            </div>
+
+            <!-- <div class="grid-item-2 cards">
+
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text" id="isoblocks">Title</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Other Title</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">Content Summary</p>
+                        <div class="card-bottom">
+                            <a href="">Link to Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text" id="isoblocks">Title</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Other Title</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">Content Summary</p>
+                        <div class="card-bottom">
+                            <a href="">Link to Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wide-card">
+                    <div class="card-top">
+                        <h3 class="card-top-text" id="isoblocks">Title</h3>
+                        
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Other Title</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">Content Summary</p>
+                        <div class="card-bottom">
+                            <a href="">Link to Page</a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+                </div> -->
+            </div>
+        </section>
+        <section class="grid portfolio card-holder">
+            <div class="title grid-item-1">
+                <h2>Web Portfolio</h2>
+            </div>
+            <!-- <div class="grid-item-2">
+                <p >
+                    Coming Soon!
+                </p>
+            </div> -->
+            
+            <div class="cards grid-item-2">
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text">Free Code Camp</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Weather</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">A web page that shows the current weather based on your GPS location.</p>
+                        <div class="card-bottom">
+                            <a href="">View Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text">Free Code Camp</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Random Quote Generator</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">This web page gives you a random quote upon visiting.</p>
+                        <div class="card-bottom">
+                            <a href="">View Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-top">
+                        <h3 class="card-top-text">Free Code Camp</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">Tribute Page</h2>
+                            <ul class="card-list">
+                                <li>
+                                    <span>Time?</span>
+                                    <span>Minute Read</span>
+                                </li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </header>
+                        <p class="card-summary">A tribute page to the late Robin Williams.</p>
+                        <div class="card-bottom">
+                            <a href="">View Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wide-card">
+                    <div class="card-content">
+                        <header>
+                            <h2 class="card-title">More Web Portfolio Links</h2>
+                        </header>
+                        <p class="card-summary">Want to see more?</p>
+                        <div class="card-bottom">
+                            <a href="/web-portfolio/web-portfolio.html">
+                                Click Here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="card grid-item-3">
+                <h3>Card Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+            </div>
+            <div class="card grid-item-4">
+                <h3>Card Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent hendrerit lectus id magna facilisis dictum.</p>
+            </div> -->
+        </section>
+    </main>
+    <footer>
+            <div>
+                <h4>Main</h4>
+                <div class="footer-main">
+                    <a href="#">Home</a>
+                    <a href="/blog/blog-list.html">Blog</a>
+                    <a href="/web-portfolio/web-portfolio.html">Portfolio</a>
+                    <a href="/contactme.html">Contact Me</a>
+                    <a href="/aboutme.html">About Me</a>
+                </div>
+            </div>
+            <div>    
+                <h4>Social</h4>
+                <div class="footer-social">
+                    <a href="twitter.com">Twitter</a>
+                    <a href="https://github.com/Developer626">GitHub</a>
+                    <a href="mailto:abc@example.com?subject=Hey%20There!">Email</a>
+                </div>
+            </div>
+            <p>Copyright 2019</p>
+        </footer>
     
 </body>
 </html>

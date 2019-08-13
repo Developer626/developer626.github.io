@@ -1,0 +1,65 @@
+@import url("main.css");
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5{
+    padding: 0;
+    margin: 0;
+}
+
+
+.weather-data{
+    height: 100vh;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    --bg-color: none;
+    color: white;
+
+    --col-repeat: 4;
+    --col-repeat-size: 1fr;
+
+    --row-repeat: 8;
+    --row-repeat-size: 1fr;
+
+    --grid-side-padding: 5%;
+    --grid-top-padding: 0;
+    --grid-bottom-padding: 0;
+
+    --col-gap: 0;
+    --row-gap: 10px;
+    
+    --grid-item-1: 1 / 1 / 9 / 7;
+    --grid-item-2: 2 / 3 / 7 / 5;
+    --grid-item-3: 2 / 3 / 3 / 5;
+    --grid-item-4: 3 / 3 / 4 / 5;
+    --grid-item-5: 4 / 3 / 5 / 5;
+    --grid-item-6: 5 / 3 / 6 / 5;
+    --grid-item-7: 6 / 3 / 7 / 5;
+    --grid-item-8: 4 / 3 / 5 / 4;
+    --grid-item-9: 4 / 3 / 5 / 4;
+    --grid-item-10: 4 / 3 / 5 / 4;
+    --grid-item-11: 4 / 3 / 5 / 4;
+    --grid-item-12: 4 / 3 / 5 / 4;
+    
+} 
+
+.over{
+    background: rgba(0, 0, 0, 0.705);
+    /* z-index: -1; */
+}
+
+.back{
+    /* z-index: -2; */
+    /* This added or changed in code */
+    /* background-image: url("pics/pexels-photo-285983.jpeg");
+    background-position: center;
+    background-size: cover; */
+
+    /* This removed in code */
+    background: rgb(48, 48, 48);
+    /* --bg-color: rgb(38, 219, 2); */
+}

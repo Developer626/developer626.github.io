@@ -1,0 +1,516 @@
+/* 
+Main TODO: To clean up this itteration of the core and make it clean and usable.
+TODO Cut out code that was being tested and move it to core_testing_code
+TODO Add better comments for sections that are being kept here.
+*/
+
+/* 
+This will be a mobile first design use, with the ability to change
+aspects of it in later files, and add upon it for desktop in later
+files as well.
+*/
+
+/* 
+These are some good videos to watch to help with the goal of SimplyCSS:
+https://www.youtube.com/watch?v=U9UU_fgpmO8&t=763s
+https://www.youtube.com/watch?v=UQRSaG1hQ20&t=1144s
+https://www.youtube.com/watch?v=BIeJNFDXyMI&t=342s
+https://www.youtube.com/watch?v=5GGhOJWlVfM
+*/
+
+/* 
+Pattern of CSS file
+-variables
+-Tags
+-classes
+Dynamic or static?
+-Variables that change between sites will be static CSS Variables
+-Variables are best fixed to a value for SimplyCSS will be staticly set
+-Variables that do change here and there will be dynamic CSS variables
+media screen sizes
+320px
+375px
+425px
+768px 
+1024px
+1440px
+2560px
+320px mobile s
+375px mobile m
+425px mobile l
+768px tablet
+1024px laptop
+1440px laptop l
+2560px 4k
+*/
+
+
+:root{
+    /* General settings */
+    --bg: red;
+    --bg-color: red;
+    --border-color: red;
+
+    /* nav */
+    /* TODO Cut this code out and place it in the core_testing_code for testing */
+    /* Links or link hover? They are single links but each link is hovered upon */
+    --nav-bar-bgc: rgba(110, 110, 110, 0.5);
+    /* --nav-bar-bgc: rgba(70, 108, 158, 0.5); */
+    /* --nav-bar-bgc: rgba(70, 121, 158, 0.5); */
+    --nav-bar-border: none;
+    --nav-bar-height: 50px;
+    --nav-bar-width: 100%;
+    --nav-bar-shadow: 0 2px 4px rgba(0, 0, 0, 0.40);
+
+    /* --nav-links-bgc: rgb(0, 204, 255); */
+    /* --nav-links-bgc: #F4B10B; */
+    /* --nav-links-bgc: #F4610B; */
+    /* --nav-links-bgc: rgb(0, 223, 167); */
+    --nav-links-bgc: #4775B0;
+    --nav-link-bgc-hover: white;
+    --nav-links-border-color: none;
+    --nav-link-border-color-hover: none;
+    --nav-links-text-color: white;
+    /* --nav-links-text-color: black; */
+    --nav-link-text-color-hover: black;
+    --nav-links-shadow: none;
+    --nav-link-shadow-hover: 2px 2px 4px rgba(0, 0, 0, 0.40);
+    
+    --nav-drop-down-content-shadow: 0px 2px 5px rgba(0, 0, 0, 0.40);
+    --nav-drop-down-content-shadow-hover: none;
+
+    --nav-current-location: purple;
+
+    /* Nav bar Transforms? */
+
+    --nav-link-margin: 0 1% 0 0;
+
+    --nav-links-padding: 5px 8px;
+
+    /* footer */
+    --footer-bg-color: #F69747;
+
+    /* a tag */
+    --link-color: black;
+    --link-color-hover: #002a51;
+    --link-decoration: none;
+
+    /* Components */
+    --button-bg-color: rgba(128, 128, 128, 0.295);
+
+    /* size settings */
+    --height: auto;
+    --width: 100%;
+    
+    /* fonts */
+    --font-family: Arial, Times;
+    --font-size: 16px;
+    --text-color: black;
+    --text-decoration: none;
+
+    /* layout/grid variables */
+    --col-repeat: 1;
+    --col-repeat-size: 1fr;
+    --row-repeat: 1;
+    --row-repeat-size: auto;
+    --col-gap: 0;
+    --row-gap: 0;
+
+    /* padding */
+    --section-top-bottom-padding: 10px;
+    --section-side-padding: 0;
+    --section-top-bottom-margin: 0;
+    --section-side-margin: 0;
+
+    /* General grid settings */
+    --grid-side-padding: 10%;
+    --grid-top-bottom-padding: 0;
+    
+    /*  */
+}
+
+/* General css code */
+/* 
+*{
+} */
+
+html, body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /* TODO Cut code from bellow and add it to the core_testing_code */
+    /* font-size: var(--font-size); Should I? I think so, but with a em or rem? */
+}
+
+section{
+    padding: var(--section-top-bottom-padding, 0) var(--section-side-padding, 0);
+    margin: var(--section-top-bottom-margin, 0) var(--section-side-margin, 0);
+}
+
+a{ 
+    color: var(--link-color);
+    text-decoration: var(--link-decoration);
+}
+
+a:hover{
+    /* --link-color: #1D82E3;  */
+    --link-color: var(--link-color-hover)
+}
+
+
+    /* TODO Cut code from bellow and add it to the core_testing_code */
+    /* TODO This code might rest better in it's own template file */
+/* ??? Put here? At all? */
+.title h1{
+    text-decoration: underline;
+}
+
+.title h2{
+    text-decoration: underline;
+}
+
+.title h3{
+    
+}
+
+.title h4{
+    
+}
+
+.title h5{
+    
+}
+
+
+    /* TODO Cut code from bellow and add it to the core_testing_code NAV/NAV BAR*/
+/* The whole nav bar */
+nav{
+    /* TODO Needs work here */
+    height: var(--nav-bar-height);
+    width: var(--nav-bar-width);
+    background-color: var(--nav-bar-bgc);
+    border: var(--nav-bar-border);
+    position: fixed;
+    box-shadow: var(--nav-bar-shadow);
+    z-index: 100;
+}
+
+nav ul{
+    /* Not needed if next css ruleset is used */
+    /* list-style-type: none; */
+    height: 100%;
+    width: 98%;
+    margin: 0;
+    padding: 0;
+
+    /* TODO Make the bellow code generic */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* The box that holds the links */
+nav ul li{
+    display: inline-block;
+    text-transform: uppercase;
+    margin: var(--nav-link-margin);
+}
+
+nav li a{
+    /* bellow line needed it seems to align dropdown with its parent*/
+    display: inline-block; 
+    background-color: var(--nav-links-bgc);
+    border: var(--nav-links-border-color);
+    color: var(--nav-links-text-color);
+    padding: var(--nav-links-padding);
+    box-shadow: var(--nav-links-shadow);
+}
+
+nav li a:hover{
+    background-color: var(--nav-link-bgc-hover);
+    border: var(--nav-link-border-color-hover);
+    color: var(--nav-link-text-color-hover);
+    box-shadow: var(--nav-link-shadow-hover);
+}
+
+.drop-down{
+    /* display: inline-block; */
+}
+
+.drop-down-content{
+    display: none;
+    position: absolute;
+    box-shadow: var(--nav-drop-down-content-shadow);
+
+    /* To edit the color of the boxes content add this to this class */
+    /* --nav-links-bgc: grey; */
+}
+
+.drop-down-content a{
+    /* background-color: var(--nav-links-bgc); */
+}
+
+.drop-down-content:hover a{
+    /* box-shadow: var(--nav-drop-down-content-shadow-hover); */
+}
+
+.drop-down-content a{
+    display: block;
+}
+
+.drop-down-content a:hover{
+}
+
+.drop-down:hover .drop-down-content{
+    display: block;
+}
+
+/* .current-location{
+    --nav-links-bgc: grey;
+    --nav-links-text-color: white;
+} */
+
+/* Code to signify that the user is already on the current page. */
+.current-location {
+    --nav-link-bgc-hover: grey;
+    --nav-link-text-color-hover: white;
+}
+
+
+/* Absolute basic need for a drop down list */
+/* nav{
+    
+}
+nav ul{
+    list-style-type: none; // Not needed it seems
+}
+nav ul li{
+    display: inline-block;
+}
+li a{
+    
+}
+li.dropdown {
+   
+}
+.drop-down-content{
+    display: none;
+    position: absolute;
+}
+.drop-down-content a{
+    display: block;
+}
+.drop-down:hover .drop-down-content{
+    display: block;
+} */
+
+main{
+
+}
+
+footer{
+    height: var(--height);
+    width: var(--width);
+    background-color:var(--footer-bg-color);
+}
+
+
+
+/* Grid layout code */
+.grid{
+    height: var(--height);
+    width: var(--width);
+    background: var(--bg, red);
+    
+    /* Use row padding? */
+    display: grid;
+    grid-template-columns: [grid-col-start] var(--grid-side-padding) [col-start] repeat(var(--col-repeat), [col] var(--col-repeat-size)) [col-end] var(--grid-side-padding) [grid-col-end];
+    grid-template-rows: [grid-row-start] repeat(var(--row-repeat), [row] var(--row-repeat-size)) [grid-row-end];
+    grid-column-gap: var(--col-gap, 0);
+    grid-row-gap: var(--row-gap, 0);
+}
+
+.grid-item-1{
+    grid-area: var(--grid-item-1);
+}
+
+.grid-item-2{
+    grid-area: var(--grid-item-2);
+}
+
+.grid-item-3{
+    grid-area: var(--grid-item-3);
+}
+
+.grid-item-4{
+    grid-area: var(--grid-item-4);
+}
+
+.grid-item-5{
+    grid-area: var(--grid-item-5);
+}
+
+.grid-item-6{
+    grid-area: var(--grid-item-6);
+}
+
+.grid-item-7{
+    grid-area: var(--grid-item-7);
+}
+
+.grid-item-8{
+    grid-area: var(--grid-item-8);
+}
+
+.grid-item-9{
+    grid-area: var(--grid-item-9);
+}
+
+.grid-item-10{
+    grid-area: var(--grid-item-10);
+}
+
+.grid-item-11{
+    grid-area: var(--grid-item-11);
+}
+
+.grid-item-12{
+    grid-area: var(--grid-item-12);
+}
+
+/* The class that will implement this class */
+/* 
+.place-class-name-here{
+    --height: 0;
+    --width: 0;
+    --bg-color: red;
+    --col-repeat: 0;
+    --col-repeat-size: 0;
+    --row-repeat: 0;
+    --row-repeat-size: 0;
+    --grid-side-padding: 0;
+    --grid-top-padding: 0;
+    --grid-bottom-padding: 0;
+    --col-gap: 0;
+    --row-gap: 0;
+    
+    --grid-item-1: 1 / 2 / 2 / 4;
+    --grid-item-2: 2 / 2 / 3 / 3;
+    --grid-item-3: 2 / 3 / 3 / 4;
+    --grid-item-4: 3 / 2 / 4 / 3;
+    --grid-item-5: 3 / 3 / 4 / 4;
+    --grid-item-6: 4 / 2 / 5 / 3;
+    --grid-item-7: 4 / 3 / 5 / 4;
+    --grid-item-8: 4 / 3 / 5 / 4;
+    --grid-item-9: 4 / 3 / 5 / 4;
+    --grid-item-10: 4 / 3 / 5 / 4;
+    --grid-item-11: 4 / 3 / 5 / 4;
+    --grid-item-12: 4 / 3 / 5 / 4;
+    
+} 
+*/
+
+/* I'll have to check this, but it seems that just having grid on will have it set to auto. */
+/* Also having the grid items placing themselves has grid set the dimensions of itself. */
+.auto-grid{
+    height: var(--height);
+    width: var(--width);
+    background: var(--bg, red);
+    
+    /* Use row padding? */
+    display: grid;
+    grid-template-columns: [grid-col-start] repeat(var(--col-repeat), [col] var(--col-repeat-size)) [grid-col-end];
+    grid-template-rows: [grid-row-start] repeat(var(--row-repeat), [row] var(--row-repeat-size)) [grid-row-end];
+    grid-column-gap: var(--col-gap, 0);
+    grid-row-gap: var(--row-gap, 0);
+}
+
+/* Core Designed with a mobile first approach */
+/* Starting off with the Biggest mobile view for the general mobile layout */
+/* Then using the smaller view sizes to tweek the size of different parts to get a better look. */
+/* Now that I thought about it, this may not work with what I have planned, but I'll try it this way first */
+/* So if this works, it might be better to make most of the settings default to shrink code. */
+/* One problem, as stated bellow, is that css nav menu design isn't the strongest code out there, */
+/* though I do have an idea about it. As for now, this seems to work as a part of the design. */
+/* Maybe a very simple menu can be created using css (and an advanced one if I find out how to) */
+/* and if a more advanced one is wanted/needed then they can add their own js (or simplyJS). */
+
+/* Bad Commentting: I wish the above listed what I was trying to do AND why I thought it may no longer work. */
+
+/* As for the mobile css nav model, I think that I should have it set with a max number that the */
+/* nav will fit on to change it with a media query. */
+
+/* This also needs a mobile menu if it's going to be a mobile first core feature */
+@media screen 
+    and (max-width: 768px){
+        body{
+            font-size: 1em;
+        }
+        .grid{
+            --height: auto;
+            --width: 100%;
+            /* --bg-color: white; */
+        
+            --col-repeat: 1;
+            --col-repeat-size: 1fr;
+        
+            --row-repeat: 12;
+            --row-repeat-size: auto;
+        
+            /* Is this needed? */
+            --grid-side-padding: 20px; 
+            /* --grid-top-padding: 0; Is this even a thing that's working? */
+            /* --grid-bottom-padding: 0; Is this even a thing that's working? */
+        
+            /* Bellow is what's causing the layout issues: --row-gap: 5px; Why?*/
+            --col-gap: 0;
+            /* --row-gap: 10px; */
+            
+            --grid-item-1: 1 / 2 / 2 / 3;
+            --grid-item-2: 2 / 2 / 3 / 3;
+            --grid-item-3: 3 / 2 / 4 / 3;
+            --grid-item-4: 4 / 2 / 5 / 3;
+            --grid-item-5: 5 / 2 / 6 / 3;
+            --grid-item-6: 6 / 2 / 7 / 3;
+            --grid-item-7: 7 / 2 / 8 / 3;
+            --grid-item-8: 8 / 2 / 9 / 3;
+            --grid-item-9: 9 / 2 / 10 / 3;
+            --grid-item-10: 10 / 2 / 11 / 3;
+            --grid-item-11: 11 / 2 / 12 / 3;
+            --grid-item-12: 12 / 2 / 13 / 3;
+            
+        }
+
+}
+
+@media screen 
+    and (max-width: 425px){
+        body{
+            font-size: 1em;
+        }
+    }
+
+/* These are here to fix sizing problems with the various mobile screen sizes that are 425px and bellow */
+/* Ex. Line height and font-size */
+@media screen 
+    and (min-width: 376px) and (max-width: 425px){
+        body{
+            font-size: 1.4em;
+        }
+}
+
+@media screen 
+    and (min-width: 321px) and (max-width: 375px){
+        body{
+            font-size: 1.5em;
+        }
+}
+
+@media screen 
+    and (max-width: 320px){
+        body{
+            font-size: 1.2rem;
+        }
+}
+

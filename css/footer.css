@@ -1,0 +1,44 @@
+footer{
+    height: fit-content;
+    padding: 5px 0;
+    /* background: grey; */
+    /* background-color: rgb(70, 108, 158); */
+    background-color: #08346D;
+    color: white;
+    width: 100%;
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+footer a{
+    color: white;
+    display: block;
+    padding: 0 0 15px 15px;
+    /* width: 100px; */
+    /* background-color: purple; */
+}
+
+footer a:hover{
+    /*Maybe a different color for contrast*/
+    /* padding: 20px 0; */
+    color: rgb(0, 255, 255);
+}
+
+footer div{
+    padding: 10px 20px 0;
+    /* Doesn't seem to work */
+    /* display: inline; */
+    /* width: 100px; */
+    /* background-color: red; */
+}
+
+footer h4{
+    font-weight: 800;
+    padding:0;
+    margin-bottom: 5px;
+    /* background-color: orange; */
+}
+
+footer p{
+    padding: 10px 20px 0;
+}

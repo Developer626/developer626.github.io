@@ -1,0 +1,7 @@
+html, body {
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    /* background: rgb(245, 245, 245); */
+    --section-top-bottom-padding: 250px;
+}

@@ -1,0 +1,97 @@
+@import url("main.css");
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5{
+    padding: 0;
+    margin: 0;
+}
+
+
+.weather-data{
+    height: 100vh;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    --bg-color: none;
+    --link-color: blue;
+    color: white;
+
+    --col-repeat: 4;
+    --col-repeat-size: 1fr;
+
+    --row-repeat: 9;
+    --row-repeat-size: 1fr;
+
+    --grid-side-padding: 5%;
+    --grid-top-padding: 0;
+    --grid-bottom-padding: 0;
+
+    --col-gap: 0;
+    --row-gap: 10px;
+    
+    --grid-item-1: 1 / 1 / 10 / 7;
+    --grid-item-2: 2 / 3 / 8 / 5;
+    --grid-item-3: 2 / 3 / 7 / 5;
+    --grid-item-4: 6 / 3 / 7 / 5;
+    --grid-item-5: 7 / 3 / 8 / 4;
+    --grid-item-6: 7 / 3 / 8 / 5;
+    --grid-item-7: 9 / 4 / 10 / 6;
+    --grid-item-8: 4 / 3 / 5 / 4;
+    --grid-item-9: 4 / 3 / 5 / 4;
+    --grid-item-10: 4 / 3 / 5 / 4;
+    --grid-item-11: 4 / 3 / 5 / 4;
+    --grid-item-12: 4 / 3 / 5 / 4;
+    
+} 
+
+.by{
+    --link-color: orangered;
+}
+
+.over{
+    background: rgba(0, 0, 0, 0.705);
+    box-shadow: 0 3px 10px black;
+    /* z-index: -1; */
+}
+
+.back{
+    z-index: -2;
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px);
+}
+
+.weather-img{
+    background-size: cover;
+}
+
+.weather-city-temp{
+    padding: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.5em;
+    /* remove line bellow? */
+    justify-self: self-start;
+    align-self: end;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#button{
+    padding: 7px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: orangered;
+    border: 1px solid orangered;
+    font-size: 1.2em;
+    /* position: absolute; */
+    /* top: 50%; */
+}
+
+#temp-reading-change{
+    padding: 2% 0;
+    text-align: end;
+    /* position: relative; */
+}
