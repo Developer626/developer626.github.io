@@ -3,7 +3,7 @@ html, body {
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     /* background: rgb(245, 245, 245); */
-    --section-top-bottom-padding: 250px;
+    --section-top-bottom-padding: 220px;
 }
 
 main{
@@ -153,7 +153,11 @@ main{
     color: white;
 }
 
-#isoblocks, #simplyfit{
+#isoblocks, #simplyfit, #quote{
+    color: white;
+}
+
+.white-text{
     color: white;
 }
 

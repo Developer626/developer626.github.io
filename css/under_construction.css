@@ -7,5 +7,11 @@ html, body {
 }
 
 main{
-    height: 30vh;
+    height: 50vh;
+    text-align: center;
+}
+
+main h2{
+    padding: 20vh 0;
+    margin: 0;
 }
