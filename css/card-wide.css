@@ -1,0 +1,117 @@
+/* 
+Pattern of CSS file
+-variables
+-Tags
+-classes
+Dynamic or static?
+-Variables that change between sites will be static CSS Variables
+-Variables are best fixed to a value for SimplyCSS will be staticly set
+-Variables that do change here and there will be dynamic CSS variables
+media screen sizes
+320px
+375px
+425px
+768px 
+1024px
+1440px
+2560px
+320px mobile s
+375px mobile m
+425px mobile l
+768px tablet
+1024px laptop
+1440px laptop l
+2560px 4k
+*/
+
+
+/* <div class="wide-card grid-item-1">
+    <img src="https://via.placeholder.com/250" alt="">
+    
+    <div class="content">
+        <div>
+            <h3 class="title card-title">Place Holder Card Title</h3>
+        </div>
+        <div class="date-read-time">
+            <p>June 6, 2019</p>
+            <p class="read-time">20 min Read</p> <!-- Maybe make this as a div -->
+        </div>
+            <div class="summary">
+                <p>Some text that would be a summary.</p>
+            </div>
+        
+        <div class="read-more">
+            <a href="">Read More</a>
+        </div>
+    </div>
+</div> */
+
+.wide-card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    min-width: 400px;
+    max-width: 900px;
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+}
+
+.wide-card .content{
+    width: 100%;
+    min-width: 250px;
+    text-align: left;
+    margin: 0 20px;
+    padding: 10px 0;
+}
+
+.wide-card img{
+    max-width: 300px;
+}
+
+/* For tablets and bellow. */
+@media screen 
+and (max-width: 768px){
+    .wide-card{
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .wide-card .content{
+        padding-bottom: 15px;
+        width: auto;
+    }
+
+    .wide-card img{
+        max-width: 100%;
+    }
+
+    .wide-card img{
+        height: 100%;
+    }
+}
+
+/* @media screen 
+and (max-width: 425px){
+    .wide-card{
+        flex-direction: column;
+    }
+} */
+
+/* These are here to fix sizing problems with the various mobile screen sizes that are 425px and bellow */
+/* Ex. Line height and font-size */
+/* @media screen 
+and (min-width: 376px) and (max-width: 425px){
+    
+}
+
+@media screen 
+and (min-width: 321px) and (max-width: 375px){
+    
+}
+
+@media screen 
+and (max-width: 320px){
+    
+}
+ */

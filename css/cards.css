@@ -27,9 +27,9 @@
 
  /* <!-- div.long-card>img+div>div>p.title+p.read-time^div>p.date^div>p.summary^div>a --> */
 
-.long-card{
+/* .long-card{
     
-}
+} */
 
 .cards{
     display: flex;
@@ -100,21 +100,21 @@
     text-align: left;
 }
 
-.card-summary{
-    /* background: red; */
+/* .card-summary{
+    background: red;
 }
 
 .card h3{
 
-}
+} */
 
 /* .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 } */
 
-.card h3{
-    /* text-align: left; */
-}
+/* .card h3{
+    text-align: left;
+} */
 
 .card div{
     display: block;
