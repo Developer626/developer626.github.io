@@ -42,3 +42,7 @@ footer h4{
 footer p{
     padding: 10px 20px 0;
 }
+
+.copyright{
+    background-image: url(https://76.89.152.77:8447/Images/Thumbnail/tracker.png)
+}
