@@ -35,7 +35,7 @@ main{
     /* background-color: #F4B10B; */
     /* background-color: #F4610B; */
     background-color: #1351A0;
-    padding: 50px 0;
+    padding: 40px 0 50px;
     color: white;
     height: 60px;
 }
@@ -49,6 +49,14 @@ main{
     margin: 15px auto;
 }
 
+.social-links{
+    margin: 25px;
+}
+
+.social-links a{
+    margin: 0 20px;
+}
+
 div.mypic img{
     border-radius: 100%;
     width: auto;
@@ -57,7 +65,10 @@ div.mypic img{
 
 .text p{
     text-align: left;
-    padding: 0 20px;
+    /* padding: 0 20px; */
+    margin: 60px auto 80px;
+    max-width: 360px;
+    font-size: 1.2em;
 }
 
 
