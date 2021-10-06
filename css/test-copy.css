@@ -1,0 +1,191 @@
+.grid {
+  height: var(--height, auto);
+  width: var(--width, 100%);
+  background: var(--bg, none);
+  display: grid;
+  grid-template-columns: var(--cols, 1fr);
+  grid-template-rows: var(--rows, 1fr);
+  grid-column-gap: var(--col-gap, 0);
+  grid-row-gap: var(--row-gap, 0);
+  grid-template-areas: var(--ga, "");
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  color: #1E2019;
+}
+
+#selling-points {
+  --height: auto;
+  --width: 100%;
+  --bg: none;
+  justify-items: center;
+  align-items: top;
+  --col-gap: 0;
+  --row-gap: 0;
+  --cols: [grid-col-start] 20px [col-start] repeat(1, [col] 1fr) [col-end] 20px [grid-col-end];
+  --rows: [grid-row-start] repeat(4, [row] 1fr) [grid-row-end];
+  --grid-item-1: 1 / 2 / 2 / 3;
+  --grid-item-2: 2 / 2 / 3 / 3;
+  --grid-item-3: 3 / 2 / 4 / 3;
+  --grid-item-4: 4 / 2 / 5 / 3;
+}
+
+#selling-points div img {
+  height: 30px;
+  width: 30px;
+  background: teal;
+}
+
+.yellow {
+  background-color: #EAC435;
+  height: 100px;
+  width: 100%;
+  z-index: -1;
+  grid-area: 2/2/3/4;
+}
+
+.grid-item-1 {
+  grid-area: var(--grid-item-1);
+}
+
+.grid-item-2 {
+  grid-area: var(--grid-item-2);
+}
+
+.grid-item-3 {
+  grid-area: var(--grid-item-3);
+}
+
+#services {
+  --height: auto;
+  --width: 100%;
+  --bg: none;
+  justify-items: center;
+  align-items: top;
+  --col-gap: 0;
+  --row-gap: 0;
+  --cols: [sub-grid-col-start] repeat(1, [col] 1fr) [sub-grid-col-end];
+  --rows: [sub-grid-row-start] repeat(3, [row] 1fr) [sub-grid-row-end];
+  --sub-grid-item-1: 1 / 1 / 2 / 2;
+  --sub-grid-item-2: 2 / 1 / 3 / 2;
+  --sub-grid-item-3: 3 / 1 / 4 / 2;
+  border-radius: 5px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+}
+
+@media screen and (min-width: 769px) {
+  #services {
+    --cols: [sub-grid-col-start] repeat(3, [col] 1fr) [sub-grid-col-end];
+    --rows: [sub-grid-row-start] repeat(1, [row] 1fr) [sub-grid-row-end];
+    --sub-grid-item-1: 1 / 1 / 2 / 2;
+    --sub-grid-item-2: 1 / 2 / 2 / 3;
+    --sub-grid-item-3: 1 / 3 / 2 / 4;
+  }
+}
+#services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sub-grid-item-1 {
+  grid-area: var(--sub-grid-item-1);
+}
+
+.sub-grid-item-2 {
+  grid-area: var(--sub-grid-item-2);
+}
+
+.sub-grid-item-3 {
+  grid-area: var(--sub-grid-item-3);
+}
+
+#projects {
+  --height: auto;
+  --width: 100%;
+  --bg: none;
+  justify-items: center;
+  align-items: top;
+  --col-gap: 0;
+  --row-gap: 50px;
+  --ga: ". title ."". img1 ."". text1 ."". img2 ."". text2 ."". img3 ."". text3 .";
+  --cols: [grid-col-start] 20px [col-start] repeat(1, [col] 1fr) [col-end] 20px [grid-col-end];
+  --rows: [grid-row-start] repeat(7, [row] 1fr) [grid-row-end];
+  --grid-item-1: 1 / 2 / 2 / 3;
+  --grid-item-2: 2 / 2 / 3 / 3;
+  --grid-item-3: 3 / 2 / 4 / 3;
+  --grid-item-4: 4 / 2 / 5 / 3;
+  --grid-item-5: 5 / 2 / 6 / 3;
+  --grid-item-6: 6 / 2 / 7 / 3;
+  --grid-item-7: 7 / 2 / 8 / 3;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 769px) {
+  #projects {
+    --col-gap: 10px;
+    --row-gap: 150px;
+    --ga: ". . title title . ."". . img1 text1 . ."". . text2 img2 . ."". . img3 text3 . .";
+    --cols: [grid-col-start] 15px repeat(1, 1fr 300px 300px 1fr) 15px [grid-col-end];
+    --rows: [grid-row-start] repeat(4, [row] 1fr) [grid-row-end];
+    --grid-item-1: 1 / 2 / 2 / 3;
+    --grid-item-2: 1 / 3 / 2 / 4;
+    --grid-item-3: 1 / 4 / 2 / 5;
+    --grid-item-4: 1 / 5 / 2 / 6;
+    --grid-item-5: 2 / 2 / 3 / 3;
+    --grid-item-6: 2 / 3 / 3 / 4;
+    --grid-item-7: 2 / 4 / 3 / 5;
+    --grid-item-8: 2 / 5 / 3 / 6;
+    --grid-item-9: 3 / 2 / 4 / 3;
+    --grid-item-10: 3 / 3 / 4 / 4;
+    --grid-item-11: 3 / 4 / 4 / 5;
+    --grid-item-12: 3 / 5 / 4 / 6;
+    --grid-item-13: 4 / 2 / 5 / 3;
+    --grid-item-14: 4 / 3 / 5 / 4;
+    --grid-item-15: 4 / 4 / 5 / 5;
+    --grid-item-16: 4 / 5 / 5 / 6;
+  }
+}
+#projects img {
+  max-width: 250px;
+  background: teal;
+}
+
+.grid-item-area-title {
+  grid-area: title;
+}
+
+.grid-item-area-img1 {
+  grid-area: img1;
+}
+
+.grid-item-area-img2 {
+  grid-area: img2;
+}
+
+.grid-item-area-img3 {
+  grid-area: img3;
+}
+
+.grid-item-area-text1 {
+  grid-area: text1;
+}
+
+.grid-item-area-text2 {
+  grid-area: text2;
+}
+
+.grid-item-area-text3 {
+  grid-area: text3;
+}
+
+footer {
+  width: 100%;
+  height: 250px;
+  background: #1E2019;
+  color: #FB4D3D;
+}
+
+/*# sourceMappingURL=test-copy.css.map */

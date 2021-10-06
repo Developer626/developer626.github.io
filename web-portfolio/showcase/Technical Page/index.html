@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>_grid</title>
+</head>
+<body>
+    <div class="tech-doc">
+        <div class="nav">
+            <nav id="navbar" class="grid-item-1">
+                <header><h1>_grid</h1></header>
+                <!-- <ul>
+                    <li><a href="#Intro" class="nav-link">Intro</a></li>
+                    <li><a href="#_grid" class="nav-link">_grid</a></li>
+                    <li><a href="#Advanced__grid" class="nav-link">Advanced _grid</a></li>
+                    <li><a href="#grid-items" class="nav-link">grid-items</a></li>
+                    <li><a href="#grid-item-areas" class="nav-link">grid-item-areas</a></li>
+                    <li><a href="#_sub-grid" class="nav-link">_sub-grid</a></li>
+                </ul> -->
+                
+                <a href="#Intro" class="nav-link">Intro</a>
+                <a href="#_grid" class="nav-link">_grid</a>
+                <a href="#Advanced__grid" class="nav-link">Advanced _grid</a>
+                <a href="#grid-items" class="nav-link">grid-items</a>
+                <a href="#grid-item-areas" class="nav-link">grid-item-areas</a>
+                <a href="#_sub-grid" class="nav-link">_sub-grid</a>
+            
+            </nav>
+        </div>
+
+
+        <main id="main-doc" class="grid-item-2">
+            
+            <section id="Intro" class="main-section">
+                <header>
+                    <h2>Intro</h2>
+                </header>
+                <h6>Ver. 0.1.1 (Alpha)</h6>
+                
+                <p>
+                    <!-- Intro: What is the purpose of the partial _grid -->
+                    This partial contains mixins that can be used to make make simple and complex CSS 
+                    grids while writing little code. Bellow is a list with a brief description of their
+                    basic functions.
+                </p>
+
+
+                <!-- List out all functions/mixins and a one line description -->
+                <ul>
+                    <!-- <li>
+                        <h5>.grid:</h5>
+                        This class is added when using this partial, and is what makes it work.
+                        This is a CSS class that is add
+                    </li> -->
+                    <li>
+                        <h5>_grid():</h5>
+                        Is a mixin that sets up a grid with padding on the sides, and can also output 
+                        different grid layouts using media quiries.
+                    </li>
+                    
+                    <li>
+                        <h5>grid-items():</h5> 
+                        Is a mixin that outputs CSS code to help you add grid items to your grid.
+                    </li>
+                    
+                    <li>
+                        <h5>grid-areas():</h5>
+                        <!-- TODO Fix the bellow sentence. -->
+                        Is a mixin that works by outputing CSS code from a suplied list or map, that helps 
+                        you add your grid items 
+                        to their repective grid areas.
+                    </li>
+                    
+                    <li>
+                        <h5>_sub-grid():</h5>
+                        Is a more advanced/manual version of _grid(), where it has a wider range of CSS grid 
+                        variable to call on and it does not employ padding on the sides.
+                    </li>
+
+                    <li>
+                        <h5>sub-grid-items():</h5>
+                        Is a mixin that may be deprecated and merged with grid-items(). It's functionality 
+                        works like grid-items(), where it will output CSS code to help you add items to your 
+                        grid.
+                    </li>
+                    
+                    <li>
+                        <h5>sub-grid-areas():</h5>
+                        Is a mixin that may be deprecated and merged with grid-area(), since they work almost
+                        the same. It works by outputing CSS code from a suplied list or map, that helps you 
+                        add your grid items to their grid areas.
+                    </li>
+                </ul>
+
+            </section>
+            
+            <section id="_grid" class="main-section">
+                <header>
+                    <h2>_grid</h2>
+                </header>
+
+                <p>
+                    _grid() is a mixin that let users quickly build a CSS grid for their 
+                    page. It does this by accepting an amount of rows and columns in a variety of different
+                    formats, letting the user build a simple or a complex layout. This simplifies and speeds
+                    up development, allowing the user to focus on content creation and design.
+                </p>
+
+                <!-- TODO Maybe have a list of all the variables here and the type of data they can take. -->
+
+                <h3>Code Examples</h3>
+                <p>
+                    Using _grid() is fairly easy. The simplest usage is to supply it with the amount of rows 
+                    and columns you want it to create, by using the variables $col-repeat and $row-repeat.
+                </p>
+            
+                <h4>Sass</h4>
+                <pre><code>
+    .my-grid{ 
+        @include _grid($col-repeat:2, $row-repeat:2);
+    }
+                </code></pre>
+
+                <p>
+                    This creates a grid for for any container using the class .my-grid.
+                </p>
+
+                <h4>CSS</h4>
+                <pre><code>
+    /* .grid is added to all CSS files that use the partial _grid */
+    .grid {
+        height: var(--height, auto);
+        width: var(--width, 100%);
+        background: var(--bg, none);
+        display: grid;
+        grid-template-columns: var(--cols, 1fr);
+        grid-template-rows: var(--rows, 1fr);
+        grid-column-gap: var(--col-gap, 0);
+        grid-row-gap: var(--row-gap, 0);
+        grid-template-areas: var(--ga, "");
+    }
+    
+    .my-grid {
+        --height: auto;
+        --width: 100%;
+        --bg: none;
+        justify-items: center;
+        align-items: center;
+        --col-gap: 0;
+        --row-gap: 0;
+        --cols: [grid-col-start] 20px [col-start] repeat(2, [col] 1fr) [col-end] 20px [grid-col-end];
+        --rows: [grid-row-start] repeat(2, [row] 1fr) [grid-row-end];
+        --grid-item-1: 1 / 2 / 2 / 3;
+        --grid-item-2: 1 / 3 / 2 / 4;
+        --grid-item-3: 2 / 2 / 3 / 3;
+        --grid-item-4: 2 / 3 / 3 / 4;
+    }
+                </code></pre>
+
+
+                <p>
+                    <!-- How to use it in HTML -->
+                    <!-- Warning that for the items, you'll need to set that up -->
+                    Next create a div (or a span) and add the two classes .grid and the class you created (in this
+                    case .my-grid). You'll still need to use the mixin grid-items() to make the classes you'll add
+                    to your grid items, but that's all there is to it.
+                </p>
+
+                <h4>HTML</h4>
+                <pre><code>
+    &lt;div class="grid my-grid"&gt;
+        <!-- &lt;!-- Grid items placed inside the div --&gt; -->
+        &lt;!-- Don't forget to use the mixin grid-items() to create classes for your items. --&gt;
+
+        &lt;div class="grid-item-1"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-2"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-3"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-4"&gt;&lt;/div&gt;
+
+    &lt;/div&gt;               
+                </code></pre>
+
+            
+
+                <p>
+                    Bellow is an example of the grid that was created from the above code, with the exception 
+                    of the grid-items that were added to help show the details. As you can see we have four items 
+                    (in yellow w/ a blue outline) and the padding on the side (in red). If you're on desktop try
+                    shrinking and growing the page, and see how it reacts.
+                </p>
+
+                <h4>Example</h4>
+                <div class="demonstration-area">
+                    <div class="grid my-grid">
+                        <!-- The grid items were added to help with the demonstration. -->
+                        <div class="grid-item-1">
+                            <span>1</span>
+                        </div>
+                        <div class="grid-item-2">
+                            <span>2</span>
+                        </div>
+                        <div class="grid-item-3">
+                            <span>3</span>
+                        </div>
+                        <div class="grid-item-4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation text -->
+                <!-- Sass Exaple code -->
+                <!-- CSS Output -->
+                <!-- HTML Example Code-->
+                <!-- A demonstration with real code -->
+                
+            </section>
+
+            <section id="Advanced__grid" class="main-section">
+                <header>
+                    <h2>Advanced _grid</h2>
+                </header>
+
+                <p>
+                    In this section, you'll learn how to create a more complex grid layout and how to 
+                    make it resonsive.
+                </p>
+
+                <h3>Custom columns and rows</h3>
+                <p>
+                    To make a custom grid, use the Sass variables $cols and $rows. In the example
+                    bellow, we'll be creating a grid that can hold six items. As you will see, this
+                    can be done with a variety of different value types mixed or not. Specifically 
+                    any type that the CSS grid will work with.
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    .my-other-grid{
+        @include _grid($cols: 2fr 30px 50%, $rows: 1.2rem  50vh);
+    }
+                </code></pre>
+
+
+                <p>
+                    <!-- Description of bellow -->
+                    If you compare the CSS variables bellow (--cols and --rows) to the CSS varialbes in .my-grid
+                    you can see how the code is different. This new grid now can hold three items on the top row 
+                    and three on the bottom.
+                </p>
+
+                <h4>CSS</h4>
+            
+                <pre><code>
+    .my-other-grid {
+        --height: auto;
+        --width: 100%;
+        --bg: none;
+        justify-items: center;
+        align-items: center;
+        --col-gap: 0;
+        --row-gap: 0;
+        --cols: [grid-col-start] 20px repeat(1, 2fr 30px 50%) 20px [grid-col-end];
+        --rows: [grid-row-start] repeat(1, 1.2rem 50vh) [grid-row-end];
+        --grid-item-1: 1 / 2 / 2 / 3;
+        --grid-item-2: 1 / 3 / 2 / 4;
+        --grid-item-3: 1 / 4 / 2 / 5;
+        --grid-item-4: 2 / 2 / 3 / 3;
+        --grid-item-5: 2 / 3 / 3 / 4;
+        --grid-item-6: 2 / 4 / 3 / 5;
+    }
+                </code></pre>
+
+
+                <p>
+                    To use it, we'll do the same as we did with .my-grid.
+                </p>
+                <h4>HTML</h4>
+                
+                <pre><code>
+    &lt;div class="grid my-other-grid"&gt;
+        
+    &lt;!-- Don't forget to use the mixin grid-items() to create classes for your items. --&gt;
+
+        &lt;div class="grid-item-1"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-2"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-3"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-4"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-5"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-6"&gt;&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+
+                <p>
+                    The bellow code is how it looks in practice. Again if you are on a desktop try resizing 
+                    the page and see how it responds. You'll see how the middle column won't resize because
+                    we set it to a static size of 30px, while the other two will.
+                </p>
+
+                <h4>Example</h4>
+                <p></p>
+                <div class="demonstration-area">
+                    <div class="grid my-other-grid">
+                        <div class="grid-item-1">
+                            <span>1</span>
+                        </div>
+                        <div class="grid-item-2">
+                            <span>2</span>
+                        </div>
+                        <div class="grid-item-3">
+                            <span>3</span>
+                        </div>
+                        <div class="grid-item-4">
+                            <span>4</span>
+                        </div>
+                        <div class="grid-item-5">
+                            <span>5</span>
+                        </div>
+                        <div class="grid-item-6">
+                            <span>6</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3>Different Screen Sizes</h3>
+
+                <p>
+                    Now keeping one layout for all screen sizes is usually bad practice, especially 
+                    if the layout doesn't fit on mobile. So, in this section you'll learn how to create
+                    a more responsive layout that will change when resized.
+                </p>
+
+
+                <p>
+                    So first we'll create a layout for mobile devices. Then we'll make another one for 
+                    tablets. The new variable that we'll need is $tablet-threshold. This variable tells
+                    simplySass when to insert a media query and what's the min-width to set it to. Other
+                    than that the other variables that will be used are the same as before, but adding 
+                    "$tablet-" before the variable name. This time we'll be creating a 8 item grid.
+                    For mobile it will be a single column with eight rows. The tablet screen will have two
+                    columns with four in each.
+
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    .my-media-grid{
+        @include _grid($col-repeat:1, $row-repeat:8,
+        $tablet-threshold: 768px, $tablet-col-repeat: 2, $tablet-row-repeat: 4);
+    }
+                </code></pre>
+
+                <p>
+                    The preceding code that's been outputed is quite a bit, but not much was needed to
+                    be written to create it. 
+                </p>
+
+                <h4>CSS</h4>
+
+                <pre><code>
+    .my-media-grid {
+        --height: auto;
+        --width: 100%;
+        --bg: none;
+        justify-items: center;
+        align-items: center;
+        --col-gap: 0;
+        --row-gap: 0;
+        --cols: [grid-col-start] 20px [col-start] repeat(1, [col] 1fr) [col-end] 20px [grid-col-end];
+        --rows: [grid-row-start] repeat(8, [row] 1fr) [grid-row-end];
+        --grid-item-1: 1 / 2 / 2 / 3;
+        --grid-item-2: 2 / 2 / 3 / 3;
+        --grid-item-3: 3 / 2 / 4 / 3;
+        --grid-item-4: 4 / 2 / 5 / 3;
+        --grid-item-5: 5 / 2 / 6 / 3;
+        --grid-item-6: 6 / 2 / 7 / 3;
+        --grid-item-7: 7 / 2 / 8 / 3;
+        --grid-item-8: 8 / 2 / 9 / 3;
+    }
+
+    @media screen and (min-width: 768px) {
+        .my-media-grid {
+            --cols: [grid-col-start] 15px [col-start] repeat(2, [col] 1fr) [col-end] 15px [grid-col-end];
+            --rows: [grid-row-start] repeat(4, [row] 1fr) [grid-row-end];
+            --grid-item-1: 1 / 2 / 2 / 3;
+            --grid-item-2: 1 / 3 / 2 / 4;
+            --grid-item-3: 2 / 2 / 3 / 3;
+            --grid-item-4: 2 / 3 / 3 / 4;
+            --grid-item-5: 3 / 2 / 4 / 3;
+            --grid-item-6: 3 / 3 / 4 / 4;
+            --grid-item-7: 4 / 2 / 5 / 3;
+            --grid-item-8: 4 / 3 / 5 / 4;
+        }
+    }
+                </code></pre>
+
+
+                <p>
+                    Now add the class to the HTML code, in this case ".my-media-grid".
+                </p>
+
+                <h4>HTML</h4>
+
+                <pre><code>
+    &lt;div class="grid my-media-grid"&gt;
+        
+    &lt;!-- Don't forget to use the mixin grid-items() to create classes for your items. --&gt;
+
+        &lt;div class="grid-item-1"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-2"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-3"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-4"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-5"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-6"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-7"&gt;&lt;/div&gt;
+        &lt;div class="grid-item-8"&gt;&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+
+                <p>
+                    Bellow is an example of the eight item grid that grid that was created using the above 
+                    code. Try resizing it, and you'll see how the items will move around once the threshold
+                    is reached. 
+                </p>
+
+                <h4>Example</h4>
+                <p></p>
+                <div class="demonstration-area">
+                    <div class="grid my-media-grid">
+                        <div class="grid-item-1">
+                            <span>1</span>
+                        </div>
+                        <div class="grid-item-2">
+                            <span>2</span>
+                        </div>
+                        <div class="grid-item-3">
+                            <span>3</span>
+                        </div>
+                        <div class="grid-item-4">
+                            <span>4</span>
+                        </div>
+                        <div class="grid-item-5">
+                            <span>5</span>
+                        </div>
+                        <div class="grid-item-6">
+                            <span>6</span>
+                        </div>
+                        <div class="grid-item-7">
+                            <span>7</span>
+                        </div>
+                        <div class="grid-item-8">
+                            <span>8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Creating Grid Areas</h3>
+                <p>
+                    Maybe placing items by laying out areas is better for your design. In this section
+                    you'll learn how to use _grid() to create custom grid areas using the variable 
+                    $grid-areas. While you can also make a complex layout using $cols and $rows with this,
+                    for this example we'll go with a more simple design and just use $col-repeat and 
+                    $row-repeat.
+                </p>
+
+                <h4>Depenencies</h4>
+                <p>
+                    You can create your own custom classes to work with this by using "grid-area" in your 
+                    class. For this example we'll be using the mixin grid-item-areas() to create the
+                    classes we'll need.
+                </p>
+
+                <p>
+                    Because of the padding that _grid() provides, in addition to using $grid-areas, we'll
+                    also need to use ($col-repeat and $row-repeat) and/or ($cols and $rows). For this 
+                    example we'll use the varialbes with the repeat in their name.
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    .my-grid-area{
+        @include _grid($grid-areas: "top top" "side content" "footer footer",
+                        $col-repeat: 2, $row-repeat:2);
+    }
+                </code></pre>
+
+
+                <h4>CSS</h4>
+
+                <pre><code>
+    .my-grid-area {
+        --height: auto;
+        --width: 100%;
+        --bg: none;
+        justify-items: center;
+        align-items: center;
+        --col-gap: 0;
+        --row-gap: 0;
+        --ga: ". top top ." ". side content ." ". footer footer ." ;
+        --cols: [grid-col-start] 20px [col-start] repeat(2, [col] 1fr) [col-end] 20px [grid-col-end];
+        --rows: [grid-row-start] repeat(3, [row] 1fr) [grid-row-end];
+        --grid-item-1: 1 / 2 / 2 / 3;
+        --grid-item-2: 1 / 3 / 2 / 4;
+        --grid-item-3: 2 / 2 / 3 / 3;
+        --grid-item-4: 2 / 3 / 3 / 4;
+        --grid-item-5: 3 / 2 / 4 / 3;
+        --grid-item-6: 3 / 3 / 4 / 4;
+    }
+                </code></pre>
+
+
+                <h4>HTML</h4>
+
+                <pre><code>
+    &lt;div class="grid my-grid-area"&gt;
+
+    &lt;!-- Don't forget to use the mixin grid-item-areas() to create classes for your items. --&gt;
+
+        &lt;div class="grid-item-area-top"&gt;top&lt;/div&gt;
+        &lt;div class="grid-item-area-side"&gt;side&lt;/div&gt;
+        &lt;div class="grid-item-area-content"&gt;content&lt;/div&gt;
+        &lt;div class="grid-item-area-footer"&gt;footer&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+
+                <h4>Example</h4>
+
+                <div class="demonstration-area">
+                    <div class="grid my-grid-area">
+                        <div class="grid-item-area-top">
+                            <span>top</span>
+                        </div>
+                        <div class="grid-item-area-side">
+                            <span>side</span>
+                        </div>
+                        <div class="grid-item-area-content">
+                            <span>content</span>
+                        </div>
+                        <div class="grid-item-area-footer">
+                            <span>footer</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <section id="grid-items" class="main-section">
+                <header><h2>grid-items</h2></header>
+
+                <p>
+                    <!-- Intro -->
+                    This mixin is used to create as many item classes that you'll need to put items
+                    into a grid. This is primarily used when not using grid areas to create and fill
+                    your grid.
+                </p>
+
+                <h3>Basic Use</h3>
+
+                <p>
+                    For the basic use of grid-items(), it takes the number of the items that you wish
+                    to place into your grid.
+                </p>
+
+                <h4>Sass</h4>
+                
+                <pre><code>
+    @include grid-items(4);
+                </code></pre>
+
+
+
+                <h4>CSS</h4>
+
+
+                <pre><code>
+    .grid-item-1 {
+        grid-area: var(--grid-item-1);
+    }
+
+    .grid-item-2 {
+        grid-area: var(--grid-item-2);
+    }
+
+    .grid-item-3 {
+        grid-area: var(--grid-item-3);
+    }
+
+    .grid-item-4 {
+        grid-area: var(--grid-item-4);
+    }      
+                </code></pre>
+
+                <p>
+                    Next we add the class to our items. For demonstration purposes, the items will be
+                    out of order, but will be in order when displayed.
+                </p>
+
+                <h4>HTML</h4>
+
+                <pre><code>
+    &lt;div class="grid my-grid"&gt;
+
+        &lt;div class="grid-item-3"&gt;3&lt;/div&gt;
+        &lt;div class="grid-item-2"&gt;2&lt;/div&gt;
+        &lt;div class="grid-item-4"&gt;4&lt;/div&gt;
+        &lt;div class="grid-item-1"&gt;1&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+                <h4>Example</h4>
+
+                <div class="demonstration-area">
+                    <div class="grid my-grid">
+                        <div class="grid-item-3">
+                            <span>3</span>
+                        </div>
+                        <div class="grid-item-2">
+                            <span>2</span>
+                        </div>
+                        <div class="grid-item-4">
+                            <span>4</span>
+                        </div>
+                        <div class="grid-item-1">
+                            <span>1</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3>Advanced Use</h3>
+                
+                <p>
+                    Let's say that you want a little more style to any grid items that you create. 
+                    In the next example, we'll look at how to do that.
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    @include grid-items(4){
+        background: orange;
+    };
+                </code></pre>
+
+                <p>
+                    By adding some brackets when calling this mixin, we're able to add a special touch 
+                    to the look of our items. Bellow you can see how every grid-item has a background of
+                    orange.
+                </p>
+
+                <pre><code>
+    .grid-item-1 {
+        grid-area: var(--grid-item-1);
+        background: orange;
+    }
+
+    .grid-item-2 {
+        grid-area: var(--grid-item-2);
+        background: orange;
+    }
+
+    .grid-item-3 {
+        grid-area: var(--grid-item-3);
+        background: orange;
+    }
+
+    .grid-item-4 {
+        grid-area: var(--grid-item-4);
+        background: orange;
+    }
+                </code></pre>
+
+                <p>
+                    Again we'll set up the grid as we did in the basic setup of this section.
+                </p>
+
+                <h4>HTML</h4>
+                
+                <pre><code>
+    &lt;div class="grid my-grid"&gt;
+
+        &lt;div class="grid-item-3"&gt;3&lt;/div&gt;
+        &lt;div class="grid-item-2"&gt;2&lt;/div&gt;
+        &lt;div class="grid-item-4"&gt;4&lt;/div&gt;
+        &lt;div class="grid-item-1"&gt;1&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+                <p>
+                    Now instead of being yellow like in our other examples, we have four orange squares.
+                </p>
+
+                <h4>Example</h4>
+                <div class="demonstration-area">
+                    <div class="grid my-grid-items">
+                        <div class="grid-item-3">
+                            <span>3</span>
+                        </div>
+                        <div class="grid-item-2">
+                            <span>2</span>
+                        </div>
+                        <div class="grid-item-4">
+                            <span>4</span>
+                        </div>
+                        <div class="grid-item-1">
+                            <span>1</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grid-item-areas" class="main-section">
+                <header><h2>grid-item-areas</h2></header>
+
+                <p>
+                    This mixin is similar to grid-items() except you pass it a list or a map. The mixin
+                    will then generate classes with the name at the end of the class. You can then 
+                    select it for your items by adding it to your items.
+                </p>
+
+                <h3>Using a List</h3>
+                
+                <p>
+                    Now for this example we'll be using the grid we created earlier when making a grid 
+                    with areas in the _grid() section. Then, we'll create some grid-items-areas with 
+                    the list "top side content footer".
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    @include grid-item-areas(top side content footer);
+                </code></pre>
+
+                <p>
+                    This generates the bellow CSS classes.
+                </p>
+
+                <h4>CSS</h4>
+                <pre><code>
+    .grid-item-area-top {
+        grid-area: top;
+    }
+
+    .grid-item-area-side {
+        grid-area: side;
+    }
+
+    .grid-item-area-content {
+        grid-area: content;
+    }
+
+    .grid-item-area-footer {
+        grid-area: footer;
+    }
+                </code></pre>
+
+                <p>
+                    Then add them to the items we want to be placed into those areas, and just for fun
+                    we'll scramble the order of them to show how they still go into their proper spots.
+                </p>
+
+                <h4>HTML</h4>
+
+                <pre><code>
+    &lt;div class="grid my-grid-area"&gt;
+
+        &lt;div class="grid-item-area-content"&gt;content&lt;/div&gt;
+        &lt;div class="grid-item-area-footer"&gt;footer&lt;/div&gt;
+        &lt;div class="grid-item-area-top"&gt;top&lt;/div&gt;
+        &lt;div class="grid-item-area-side"&gt;side&lt;/div&gt;
+    &lt;/div&gt;    
+                </code></pre>
+
+                <h4>Example</h4>
+
+                <div class="demonstration-area">
+                    <div class="grid my-grid-area">
+                        <div class="grid-item-area-content">
+                            <span>content</span>
+                        </div>
+                        <div class="grid-item-area-footer">
+                            <span>footer</span>
+                        </div>
+                        <div class="grid-item-area-top">
+                            <span>top</span>
+                        </div>
+                        <div class="grid-item-area-side">
+                            <span>side</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3>Using Maps</h3>
+
+                <p>
+                    Sometime you might want a different name to be added to your class, than the one
+                    that's provided. In this example, we'll create areas with a little more 
+                    customizartion. Here we'll call on grid-item-areas and provide it with a map that
+                    has the format ("name": "area name").
+                </p>
+
+                <h4>Sass</h4>
+                <pre><code>
+    @include grid-item-areas(("nav": "top", "ad": "side", "con": "content", "foot": "footer"));
+                </code></pre>
+
+                <p>
+                    As you can see, the names of the classes don't match the name of the grid-area.
+                </p>
+
+                <h4>CSS</h4>
+                <pre><code>
+    .grid-item-area-nav {
+        grid-area: top;
+    }
+
+    .grid-item-area-ad {
+        grid-area: side;
+    }
+
+    .grid-item-area-con {
+        grid-area: content;
+    }
+
+    .grid-item-area-foot {
+        grid-area: footer;
+    }
+                </code></pre>
+
+                <p>
+                    All that's left is to add them to the items in the grid. We don't even need to create
+                    a different grid layout. So, we'll call the one in the previous example.
+                </p>
+
+                <h4>HTML</h4>
+                <pre><code>
+    &lt;div class="grid my-grid-area"&gt;
+
+        &lt;div class="grid-item-area-con"&gt;content&lt;/div&gt;
+        &lt;div class="grid-item-area-foot"&gt;footer&lt;/div&gt;
+        &lt;div class="grid-item-area-nav"&gt;top&lt;/div&gt;
+        &lt;div class="grid-item-area-ad"&gt;side&lt;/div&gt;
+    &lt;/div&gt; 
+                </code></pre>
+
+
+                <p>
+                    Try checking the underlying CSS code.
+                </p>
+
+                <h4>Example</h4>
+
+                <div class="demonstration-area">
+                    <div class="grid my-grid-area">
+                        <div class="grid-item-area-con">
+                            <span>content</span>
+                        </div>
+                        <div class="grid-item-area-foot">
+                            <span>footer</span>
+                        </div>
+                        <div class="grid-item-area-nav">
+                            <span>top</span>
+                        </div>
+                        <div class="grid-item-area-ad">
+                            <span>side</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+            </section>
+            
+
+            <section id="_sub-grid" class="main-section">
+                <header><h2>_sub-grid</h2></header>
+                <p>
+                    _sub-grid() is very similar to _grid(), as you can use all of the same variable names 
+                    to the same effect. The main difference is that this mixin produces a grid without 
+                    the side padding that _grid() does. As this has a lot more plans and changes 
+                    coming, this section will be updated at a later time.
+
+                </p>
+            </section>
+
+
+        </main>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
