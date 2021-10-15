@@ -1,0 +1,188 @@
+html, body {
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    /* background: rgb(245, 245, 245); */
+    --section-top-bottom-padding: 220px;
+}
+
+main{
+    background: rgb(255, 255, 255); 
+}
+
+/* main section{
+    padding-top: 100px;
+} */
+
+.landing{
+    --height: 100vh;
+    --bg: none;
+    --row-repeat: 5;
+    --row-repeat-size: 20%;
+    --grid-item-1: 1/1/6/4;
+    --grid-item-2: 1/1/6/4;
+    --grid-item-3: 3/2/4/3;
+    --grid-item-4: 5/2/6/3;
+    text-align: center;
+}
+
+.landing-background{
+    /* /Images/negative-space-laptop-camera-notepad-glass-water-daria-shevtsova.jpg */
+    /* filter: grayscale(0.5); */
+    filter: blur(0px) grayscale(0);
+    z-index: -2;
+    background-image: url(/Images/full-sized/negative-space-laptop-camera-notepad-glass-water-daria-shevtsova.jpg);
+    background-size: cover;
+    background-position: center;
+    animation-duration: 3s;
+    animation-name: outoffocus;
+}
+
+.landing-text{
+    font-size: 3rem;
+    color: floralwhite;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.landing-text p{
+    text-align: left;
+    line-height: 10px;
+    margin-top: 30px;
+    opacity: 0;
+    /* animation-duration: 3s; */
+    animation: fadeandslidein 2.5s forwards;
+    /* animation-name: fadeandslidein; */
+}
+
+@keyframes outoffocus {
+    from {
+        filter: grayscale(0.5) blur(10px); 
+    }
+
+  
+    to {
+        filter: grayscale(0) blur(0px);
+    }
+}
+
+/* @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+} */
+
+@keyframes fadeandslidein {
+    from {
+        margin-top: 60px;
+        opacity: 0;
+    }
+  
+    to {
+        margin-top: 30px;
+        opacity: 1;
+    }
+}
+
+.what{
+    /* --height: 100vh; */
+    --bg: none;
+    --row-repeat: 2;
+    /* --row-repeat-size: 20%; */
+    --grid-item-1: 1/2/2/3;
+    --grid-item-2: 2/2/3/3;
+    --grid-item-3: 3/2/4/3;
+    --grid-item-4: 5/2/6/3;
+    text-align: center;
+    /* margin-top: 80px; */
+    color: white;
+    /* background-color: rgb(156, 168, 184); */
+    /* background-color: rgb(70, 108, 158); */
+    background-color: #079F79;
+    background-color: #F4610B;
+    background-color: #F4B10B;
+    background-color: #1351A0;
+    /* padding: 200px 0; */
+}
+
+.what p{ 
+    margin: 0 auto;
+    width: 60%;
+}
+
+.portfolio{
+    /* background-color: rgb(156, 168, 184); */
+    background-color: white;
+    /* background-color: #F4B10B; */
+    /* margin-top: 200px; */
+}
+
+
+
+.card-holder{
+        /* --height: 100vh; */
+        --bg: none;
+        --row-repeat: 4;
+        /* --row-repeat-size: 20%; */
+        --grid-item-1: 1/2/2/3;
+        --grid-item-2: 2/2/3/3;
+        --grid-item-3: 3/2/4/3;
+        --grid-item-4: 4/2/5/3;
+        text-align: center;
+}
+
+.github-projects{
+    padding-bottom: 80px;
+}
+
+.blog{
+
+    /* background-color: rgb(156, 168, 184); */
+    /* background-color: rgb(70, 108, 158); */
+    /* background-color: #F4B10B; */
+    background-color: #1351A0;
+    /* background-color: #F4610B; */
+    /* background-color: #1B31A7; */
+    /* background-color: #069888; */
+    /* background-color: #079F79; */
+    color: white;
+}
+
+#isoblocks, #simplyfit, #quote{
+    color: white;
+}
+
+.white-text{
+    color: white;
+}
+
+/* footer{
+    height: fit-content;
+    padding: 20px 10px; */
+    /* background: grey; */
+    /* background-color: rgb(70, 108, 158); */
+    /* background-color: #08346D;
+    color: white;
+} */
+/* 
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    color: rgb(0, 255, 255);
+} */
+
+@media screen 
+    and (max-width: 425px){
+
+        .landing-text{
+            font-size: 2rem;
+        }
+
+}
